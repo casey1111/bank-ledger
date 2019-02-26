@@ -27,12 +27,6 @@ import static org.junit.Assert.assertEquals;
 public class LedgerApplicationTests {
     private static String CONTENT_TYPE = "application/json";
 
-    @Autowired
-    InMemoryUserDetailsManager inMemoryUserDetailsManager;
-
-    @Autowired
-    PasswordEncoder passwordEncoder;
-
     @LocalServerPort
     int port;
 
