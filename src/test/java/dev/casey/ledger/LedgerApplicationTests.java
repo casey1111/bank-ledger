@@ -1,15 +1,9 @@
 package dev.casey.ledger;
 
 import io.restassured.RestAssured;
-import static io.restassured.RestAssured.*;
-import static org.junit.Assert.assertEquals;
-
 import io.restassured.http.Cookie;
-import io.restassured.http.Cookies;
 import io.restassured.response.ResponseBody;
-import io.restassured.response.ValidatableResponse;
 import org.json.JSONArray;
-import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -18,13 +12,12 @@ import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.Map;
+import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(
