@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {NavLink as RRNavLink, withRouter} from "react-router-dom";
 import {
   Nav,
@@ -7,9 +7,11 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
+import { LoginContext } from "./loginContext";
 
+const Header = () => {
+  const loginContext = useContext(LoginContext);
 
-const Header = ({isLoggedIn}) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
@@ -28,7 +30,7 @@ const Header = ({isLoggedIn}) => {
           <NavItem>
             <NavLink tag={RRNavLink} exact to="/account-create" activeClassName="active">Create New Account</NavLink>
           </NavItem>
-          {isLoggedIn ?
+          {loginContext.isLoggedIn ?
             <NavItem right>
               <NavLink tag={RRNavLink} exact to="/logout" activeClassName="active">Logout</NavLink>
             </NavItem> :

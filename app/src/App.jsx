@@ -1,30 +1,18 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import Main from './Main';
 import Header from './Header';
+import { LoginContext } from './loginContext';
 
-class App extends Component {
-    constructor(props) {
-        super(props);
+const App = () => {
+    const [isLoggedIn, setLogin] = useState();
 
-        // track current API login session
-        // object is passed down component tree for children to access.
-        this.state = {
-          isLoggedIn: false,
-          setLogin: this.setLogin,
-        }
-    }
-
-    setLogin = (isLoggedIn) => this.setState({ isLoggedIn });
-
-    render() {
-        return (
-          <div>
-            <Header {...this.state} />
-            <br />
-            <Main {...this.state} />
-          </div>
-        );
-    }
-}
+    return (
+      <LoginContext.Provider value={{ isLoggedIn, setLogin }}>
+        <Header />
+        <br />
+        <Main />
+      </LoginContext.Provider>
+    );
+};
 
 export default App;
