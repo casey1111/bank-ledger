@@ -1,13 +1,15 @@
 import { withRouter } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Container, Button, Form, FormGroup, Label, Input, Row, Col, Jumbotron } from 'reactstrap';
 import { callApi } from "./utils";
+import { LoginContext} from "./loginContext";
 
 const Login = ({history, setLogin}) => {
+    const loginContext = useContext(LoginContext);
     const checkCredentials = (username, password) => {
       callApi('login', 'POST', JSON.stringify({ username, password })).then(result => {
         if (result.status === 200) {
-          setLogin(true);
+          loginContext.setLogin(true);
           history.replace('/transaction-history');
         } else {
           setMessage('Invalid Login');

@@ -1,11 +1,14 @@
 import {withRouter} from 'react-router-dom';
-import React, {useEffect} from 'react';
+import React, {useEffect, useContext} from 'react';
 import {callApi} from "./utils";
+import { LoginContext } from "./loginContext";
 
-const Logout = ({history, setLogin}) => {
+const Logout = ({history}) => {
+  const loginContext = useContext(LoginContext);
+
   useEffect(() => {
     callApi('logout').then(() => {
-      setLogin(false);
+      loginContext.setLogin(false);
       history.replace('/login');
     });
   });
