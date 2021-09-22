@@ -1,4 +1,4 @@
-package dev.casey.ledger.models;
+package gem.banking.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

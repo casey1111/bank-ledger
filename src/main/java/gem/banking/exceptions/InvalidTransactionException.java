@@ -1,4 +1,4 @@
-package dev.casey.ledger.exceptions;
+package gem.banking.exceptions;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 @AllArgsConstructor
-public class InsufficientFundsException extends Exception {
-    public InsufficientFundsException(String message) {
+public class InvalidTransactionException extends Exception {
+    public InvalidTransactionException(String message) {
         super(message);
     }
 }

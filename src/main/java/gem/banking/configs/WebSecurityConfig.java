@@ -1,4 +1,4 @@
-package dev.casey.ledger.configs;
+package gem.banking.configs;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;

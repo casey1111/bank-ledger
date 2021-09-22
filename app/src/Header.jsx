@@ -15,9 +15,10 @@ const Header = () => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand>Bank Ledger</NavbarBrand>
+        <NavbarBrand>Gem Bankers United</NavbarBrand>
+        <br />
         <Nav className="mr-auto" navbar>
-          <NavItem>
+          <NavItem isLoggedin={loginContext.isLoggedIn}>
             <NavLink tag={RRNavLink} exact to="/transaction-history" activeClassName="active">View Transaction
               History</NavLink>
           </NavItem>

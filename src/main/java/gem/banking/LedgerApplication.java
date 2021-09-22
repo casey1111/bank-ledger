@@ -1,8 +1,7 @@
-package dev.casey.ledger;
+package gem.banking;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
 @SpringBootApplication
 public class LedgerApplication {

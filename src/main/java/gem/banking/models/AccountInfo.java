@@ -1,7 +1,7 @@
-package dev.casey.ledger.models;
+package gem.banking.models;
 
-import dev.casey.ledger.exceptions.InvalidTransactionException;
-import dev.casey.ledger.exceptions.InsufficientFundsException;
+import gem.banking.exceptions.InvalidTransactionException;
+import gem.banking.exceptions.InsufficientFundsException;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 

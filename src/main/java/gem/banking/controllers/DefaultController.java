@@ -1,4 +1,4 @@
-package dev.casey.ledger.controllers;
+package gem.banking.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

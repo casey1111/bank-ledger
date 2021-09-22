@@ -1,11 +1,11 @@
-package dev.casey.ledger.services;
+package gem.banking.services;
 
-import dev.casey.ledger.exceptions.AccountExistsException;
-import dev.casey.ledger.exceptions.AccountInvalidException;
-import dev.casey.ledger.exceptions.InsufficientFundsException;
-import dev.casey.ledger.exceptions.InvalidTransactionException;
-import dev.casey.ledger.models.AccountInfo;
-import dev.casey.ledger.models.Transaction;
+import gem.banking.exceptions.AccountExistsException;
+import gem.banking.exceptions.AccountInvalidException;
+import gem.banking.exceptions.InsufficientFundsException;
+import gem.banking.exceptions.InvalidTransactionException;
+import gem.banking.models.AccountInfo;
+import gem.banking.models.Transaction;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
