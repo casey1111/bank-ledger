@@ -1,12 +1,12 @@
 package gem.banking.services;
 
+import gem.banking.models.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 @Service
 public class AuthenticationService {
@@ -25,12 +25,12 @@ public class AuthenticationService {
     @Resource(name="authenticationManager")
     private AuthenticationManager authManager;
 
-    // create account in temporary storage
-    private final InMemoryUserDetailsManager inMemoryUserDetailsManager;
+
+    private final AccountService accountService;
 
     @Autowired
-    public AuthenticationService(InMemoryUserDetailsManager inMemoryUserDetailsManager) {
-        this.inMemoryUserDetailsManager = inMemoryUserDetailsManager;
+    public AuthenticationService(AccountService accountService) {
+        this.accountService = accountService;
     }
 
     public String getCurrentUser() {
@@ -45,8 +45,8 @@ public class AuthenticationService {
         return username;
     }
 
-    public void createUser(String username, String password) {
-        inMemoryUserDetailsManager.createUser(new User(username, passwordEncoder.encode(password), new ArrayList<>()));
+    public void createUser(String documentId, String username, String password) throws ExecutionException, InterruptedException {
+        accountService.createAccount(new Account(documentId, username, passwordEncoder.encode(password)));
     }
 
     public void login(HttpServletRequest request, String username, String password) {

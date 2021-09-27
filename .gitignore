@@ -27,3 +27,6 @@ HELP.md
 /nbdist/
 /.nb-gradle/
 /build/
+/src/main/resources/gem-bankers-united-firebase.json
+/node_modules/
+/package-lock.json

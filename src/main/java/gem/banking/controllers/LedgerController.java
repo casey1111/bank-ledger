@@ -43,7 +43,7 @@ public class LedgerController {
 
     @PostMapping("/account")
     public ResponseEntity<Void> createAccount(@RequestBody Account createAccountRequest) throws Exception {
-        authenticationService.createUser(createAccountRequest.getUsername(), createAccountRequest.getPassword());
+        //authenticationService.createUser(createAccountRequest.getUsername(), createAccountRequest.getPassword());
         ledgerService.createAccount(createAccountRequest.getUsername());
 
         return new ResponseEntity<>(HttpStatus.CREATED);
